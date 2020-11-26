@@ -19,3 +19,18 @@ Quando eu solicito ao sistema para atribuir o conceito “MA” à meta “Enten
 E solicito ao sistema para atribuir o conceito o conceito “MA” à meta “Especificar requisitos com qualidade”,
 Então o sistema armazena os conceitos “MA” e “MPA” atribuídos pelo professor, e os conceitos  “MA” e “MA” atribuídos por mim às metas “Entender conceitos de requisitos” e “Especificar requisitos com qualidade”, respectivamente,
 E retorna uma mensagem de confirmação “Auto-avaliação preenchida com sucesso”.
+
+Cenário: preencher a minha auto-avaliação incorretamente
+Dado que estou logado como o aluno “eaor”
+E eu estou na tela “Auto-avaliação”
+E vejo os conceitos “MA” e “MPA” atribuídos pelo professor às metas “Entender conceitos de requisitos” e “Especificar requisitos com qualidade”, respectivamente,
+Quando eu atribuo o conceito “MA” à meta “Entender conceitos de requisitos” e confirmo,
+Então eu vejo uma mensagem de erro “Nenhum conceito foi atribuído à meta ‘Especificar requisitos com qualidade’”,
+E permaneço na tela de preenchimento de auto-avaliação.
+
+Cenário: preencher a auto-avaliação incorretamente
+Dado que estou logado como o aluno “eaor”
+E o professor atribuiu os conceitos “MA” e “MPA” para mim às metas “Entender conceitos de requisitos” e “Especificar requisitos com qualidade”, respectivamente,
+Quando eu solicito ao sistema para atribuir o conceito “MA” à meta “Entender conceitos de requisitos”,
+Então o sistema retorna uma mensagem de erro “Nenhum conceito foi atribuído à meta ‘Especificar requisitos com qualidade’”,
+E nada é armazenado ou alterado no sistema.
